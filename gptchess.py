@@ -49,7 +49,20 @@ def make_move(board, move):
 # Function to print the board to the console
 def print_board(board):
     print()
-    print(board)
+    # StringIO creates a string buffer to write the board representation
+    with StringIO() as s:
+        # Print the board to the string buffer with row and column labels
+        s.write('   a  b  c  d  e  f  g  h\n')
+        for row in range(8, 0, -1):
+            s.write(str(row) + ' ')
+            for square in range(8):
+                piece = board.piece_at(chess.square(square, row - 1))
+                s.write('|{} '.format(piece.symbol() if piece else '·'))
+            s.write('| ' + '\n')
+        # Move back to the beginning of the StringIO buffer
+        s.seek(0)
+        # Print the buffer contents to the terminal
+        print(s.read())
 
 # Main game loop
 def play_game():
