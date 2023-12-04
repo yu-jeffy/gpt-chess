@@ -71,7 +71,7 @@ def play_game():
             gpt4_move = get_gpt4_move(board, past_moves)
             if gpt4_move and make_move(board, gpt4_move):
                 past_moves.append(gpt4_move)
-                print(f"GPT-4's move: {gpt4_move}")
+                #print(f"GPT-4's move: {gpt4_move}")
 
                 # funny comment
                 board_s = board.epd
