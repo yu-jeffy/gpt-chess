@@ -48,6 +48,7 @@ def make_move(board, move):
 
 # Function to print the board to the console
 def print_board(board):
+    print()
     print(board)
 
 # Main game loop
